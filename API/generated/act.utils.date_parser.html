@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>act.plotting.Display.put_display_in_subplot &#8212; Atmospheric data Community Toolkit 0.post1+g85ce4d9 documentation</title>
+    <title>act.utils.date_parser &#8212; Atmospheric data Community Toolkit 0.post1+g85ce4d9 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,8 +50,8 @@
     <script src="../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="act.plotting.GeographicPlotDisplay" href="act.plotting.GeographicPlotDisplay.html" />
-    <link rel="prev" title="act.plotting.Display.assign_to_figure_axis" href="act.plotting.Display.assign_to_figure_axis.html" /> 
+    <link rel="next" title="act.utils.dates_between" href="act.utils.dates_between.html" />
+    <link rel="prev" title="act.utils.create_pyart_obj" href="act.utils.create_pyart_obj.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -367,16 +367,16 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="act.plotting.html">
    act.plotting
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="act.plotting.ContourDisplay.html">
      act.plotting.ContourDisplay
@@ -439,16 +439,16 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active has-children">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="act.plotting.Display.html">
      act.plotting.Display
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="act.plotting.Display.add_colorbar.html">
        act.plotting.Display.add_colorbar
@@ -464,8 +464,8 @@
        act.plotting.Display.assign_to_figure_axis
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="act.plotting.Display.put_display_in_subplot.html">
        act.plotting.Display.put_display_in_subplot
       </a>
      </li>
@@ -1260,16 +1260,16 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="act.utils.html">
    act.utils
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
   <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="act.utils.ChangeUnits.html">
      act.utils.ChangeUnits
@@ -1327,8 +1327,8 @@
      act.utils.create_pyart_obj
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="act.utils.date_parser.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      act.utils.date_parser
     </a>
    </li>
@@ -1422,23 +1422,29 @@
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <section id="act-plotting-display-put-display-in-subplot">
-<h1>act.plotting.Display.put_display_in_subplot<a class="headerlink" href="#act-plotting-display-put-display-in-subplot" title="Permalink to this headline">#</a></h1>
-<dl class="py method">
-<dt class="sig sig-object py" id="act.plotting.Display.put_display_in_subplot">
-<span class="sig-prename descclassname"><span class="pre">Display.</span></span><span class="sig-name descname"><span class="pre">put_display_in_subplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/act/plotting/plot.html#Display.put_display_in_subplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#act.plotting.Display.put_display_in_subplot" title="Permalink to this definition">#</a></dt>
-<dd><p>This will place a Display object into a specific subplot.
-The display object must only have one subplot.</p>
-<p>This will clear the display in the Display object being added.</p>
+                 <section id="act-utils-date-parser">
+<h1>act.utils.date_parser<a class="headerlink" href="#act-utils-date-parser" title="Permalink to this headline">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="act.utils.date_parser">
+<span class="sig-prename descclassname"><span class="pre">act.utils.</span></span><span class="sig-name descname"><span class="pre">date_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%Y%m%d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_datetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/act/utils/datetime_utils.html#date_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#act.utils.date_parser" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts one datetime string to another or to
+a datetime object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Display</strong> (<em>Display object or subclass</em>) – The Display object to add as a subplot</p></li>
-<li><p><strong>subplot_index</strong> (<em>tuple</em>) – Which subplot to add the Display to.</p></li>
+<li><p><strong>date_string</strong> (<em>str</em>) – datetime string to be parsed. Accepted formats are
+YYYY-MM-DD, DD.MM.YYYY, DD/MM/YYYY or YYYYMMDD.</p></li>
+<li><p><strong>output_format</strong> (<em>str</em>) – Format for datetime.strftime to output datetime string.</p></li>
+<li><p><strong>return_datetime</strong> (<em>bool</em>) – If true, returns str as a datetime object.
+Default is False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>ax</strong> (<em>matplotlib axis handle</em>) – The axis handle to the display object being added.</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>datetime_str</strong> (<em>str</em>) – A valid datetime string.</p></li>
+<li><p><strong>datetime_obj</strong> (<em>datetime.datetime</em>) – A datetime object.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1454,17 +1460,17 @@ The display object must only have one subplot.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="act.plotting.Display.assign_to_figure_axis.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="act.utils.create_pyart_obj.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">act.plotting.Display.assign_to_figure_axis</p>
+            <p class="prev-next-title">act.utils.create_pyart_obj</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="act.plotting.GeographicPlotDisplay.html" title="next page">
+    <a class='right-next' id="next-link" href="act.utils.dates_between.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">act.plotting.GeographicPlotDisplay</p>
+        <p class="prev-next-title">act.utils.dates_between</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
