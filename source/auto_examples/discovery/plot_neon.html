@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>NEON Data &#8212; Atmospheric data Community Toolkit 0.post1+g3cd0a2e documentation</title>
+    <title>NEON Data &#8212; Atmospheric data Community Toolkit 0.post1+g14a9757 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -596,7 +596,7 @@ on the North Slope and plot them</p>
 
 <span class="k">if</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="c1"># Download ARM data if a username/token are set</span>
-    <span class="n">files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_data</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">username</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a><span class="p">,</span> <span class="s1">&#39;nsametC1.b1&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-10-07&#39;</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_arm_data</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">username</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a><span class="p">,</span> <span class="s1">&#39;nsametC1.b1&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-10-07&#39;</span><span class="p">)</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">armfiles</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
 
     <span class="c1"># Download NEON Data</span>
@@ -604,7 +604,7 @@ on the North Slope and plot them</p>
     <span class="c1"># https://www.neonscience.org/field-sites/explore-field-sites</span>
     <span class="n">site_code</span> <span class="o">=</span> <span class="s1">&#39;BARR&#39;</span>
     <span class="n">product_code</span> <span class="o">=</span> <span class="s1">&#39;DP1.00002.001&#39;</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">get_neon</span><span class="o">.</span><span class="n">download_neon_data</span><span class="p">(</span><span class="n">site_code</span><span class="p">,</span> <span class="n">product_code</span><span class="p">,</span> <span class="s1">&#39;2022-10&#39;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">neon</span><span class="o">.</span><span class="n">download_neon_data</span><span class="p">(</span><span class="n">site_code</span><span class="p">,</span> <span class="n">product_code</span><span class="p">,</span> <span class="s1">&#39;2022-10&#39;</span><span class="p">)</span>
 
     <span class="c1"># A number of files are downloaded and further explained in the readme file that&#39;s downloaded.</span>
     <span class="c1"># These are the files we will need for reading 1 minute NEON data</span>
