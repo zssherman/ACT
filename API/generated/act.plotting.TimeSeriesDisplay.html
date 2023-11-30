@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>act.plotting.TimeSeriesDisplay &#8212; Atmospheric data Community Toolkit 0.post1+g14a9757 documentation</title>
+    <title>act.plotting.TimeSeriesDisplay &#8212; Atmospheric data Community Toolkit 0.post1+gedc3fe9 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -351,6 +351,16 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="act.io.read_arm_mmcr.html">
+     act.io.read_arm_mmcr
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="act.io.read_arm_netcdf.html">
+     act.io.read_arm_netcdf
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="act.io.read_csv.html">
      act.io.read_csv
     </a>
@@ -401,18 +411,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="act.io.read_mmcr.html">
-     act.io.read_mmcr
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="act.io.read_neon_csv.html">
      act.io.read_neon_csv
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="act.io.read_netcdf.html">
-     act.io.read_netcdf
     </a>
    </li>
    <li class="toctree-l2">
@@ -1602,7 +1602,7 @@ time series plots from data. It is inherited from Display and therefore
 contains all of Display’s attributes and methods.</p>
 <p class="rubric">Examples</p>
 <p>To create a TimeSeriesDisplay with 3 rows, simply do:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">read_netcdf</span><span class="p">(</span><span class="n">the_file</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_arm_netcdf</span><span class="p">(</span><span class="n">the_file</span><span class="p">)</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">TimeSeriesDisplay</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">subplot_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>

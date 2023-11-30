@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>act.io.read_mmcr &#8212; Atmospheric data Community Toolkit 0.post1+g14a9757 documentation</title>
+    <title>act.io.read_arm_netcdf &#8212; Atmospheric data Community Toolkit 0.post1+gedc3fe9 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -44,8 +44,8 @@
     <script src="../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="act.io.read_neon_csv" href="act.io.read_neon_csv.html" />
-    <link rel="prev" title="act.io.read_mfas_sodar" href="act.io.read_mfas_sodar.html" /> 
+    <link rel="next" title="act.io.read_csv" href="act.io.read_csv.html" />
+    <link rel="prev" title="act.io.read_arm_mmcr" href="act.io.read_arm_mmcr.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -351,6 +351,16 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="act.io.read_arm_mmcr.html">
+     act.io.read_arm_mmcr
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     act.io.read_arm_netcdf
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="act.io.read_csv.html">
      act.io.read_csv
     </a>
@@ -400,19 +410,9 @@
      act.io.read_mfas_sodar
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     act.io.read_mmcr
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="act.io.read_neon_csv.html">
      act.io.read_neon_csv
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="act.io.read_netcdf.html">
-     act.io.read_netcdf
     </a>
    </li>
    <li class="toctree-l2">
@@ -1592,23 +1592,57 @@
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
               <div>
-                 <section id="act-io-read-mmcr">
-<h1>act.io.read_mmcr<a class="headerlink" href="#act-io-read-mmcr" title="Permalink to this headline">#</a></h1>
+                 <section id="act-io-read-arm-netcdf">
+<h1>act.io.read_arm_netcdf<a class="headerlink" href="#act-io-read-arm-netcdf" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="act.io.read_mmcr">
-<span class="sig-prename descclassname"><span class="pre">act.io.</span></span><span class="sig-name descname"><span class="pre">read_mmcr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/act/io/armfiles.html#read_mmcr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#act.io.read_mmcr" title="Permalink to this definition">#</a></dt>
-<dd><p>Reads in ARM MMCR files and splits up the variables into specific
-mode variables based on what’s in the files.  MMCR files have the modes
-interleaved and are not readable using xarray so some modifications are
-needed ahead of time.</p>
+<dt class="sig sig-object py" id="act.io.read_arm_netcdf">
+<span class="sig-prename descclassname"><span class="pre">act.io.</span></span><span class="sig-name descname"><span class="pre">read_arm_netcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">concat_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_None</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'by_coords'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decode_times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cftime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_base_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combine_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'override'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_qc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/act/io/arm.html#read_arm_netcdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#act.io.read_arm_netcdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns <cite>xarray.Dataset</cite> with stored data and metadata from a user-defined
+query of ARM-standard netCDF files from a single datastream. Has some procedures
+to ensure time is correctly fomatted in returned Dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filenames</strong> (<em>str, pathlib.PosixPath or list of str</em>) – Name of file(s) to read.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filenames</strong> (<em>str, pathlib.PosixPath, list of str, list of pathlib.PosixPath</em>) – Name of file(s) to read.</p></li>
+<li><p><strong>concat_dim</strong> (<em>str</em>) – Dimension to concatenate files along.</p></li>
+<li><p><strong>return_None</strong> (<em>boolean</em>) – Catch IOError exception when file not found and return None.
+Default is False.</p></li>
+<li><p><strong>combine</strong> (<em>str</em>) – String used by xarray.open_mfdataset() to determine how to combine
+data files into one Dataset. See Xarray documentation for options.</p></li>
+<li><p><strong>decode_times</strong> (<em>boolean</em>) – Standard Xarray option to decode time values from int/float to python datetime values.
+Appears the default is to do this anyway but need this option to allow correct usage
+of use_base_time.</p></li>
+<li><p><strong>use_cftime</strong> (<em>boolean</em>) – Option to use cftime library to parse the time units string and correctly
+establish the time values with a units string containing timezone offset.
+This is used because the Pandas units string parser does not correctly recognize
+time zone offset. Code will automatically detect cftime object and convert to datetime64
+in returned Dataset.</p></li>
+<li><p><strong>use_base_time</strong> (<em>boolean</em>) – Option to use ARM time variables base_time and time_offset. Useful when the time variable
+is not included (older files) or when the units attribute is incorrectly formatted. Will use
+the values of base_time and time_offset as seconds since epoch and create datetime64 values
+for time coordinate. If set will change decode_times and use_cftime to False.</p></li>
+<li><p><strong>combine_attrs</strong> (<em>str</em>) – String indicating how to combine attrs of the datasets being merged</p></li>
+<li><p><strong>cleanup_qc</strong> (<em>boolean</em>) – Call clean.cleanup() method to convert to standardized ancillary quality control
+variables. This will not allow any keyword options, so if non-default behavior is
+desired will need to call clean.cleanup() method on the dataset after reading the data.</p></li>
+<li><p><strong>keep_variables</strong> (<em>str or list of str</em>) – Variable names to read from data file. Works by creating a list of variable names
+to exclude from reading and passing into open_mfdataset() via drop_variables keyword.
+Still allows use of drop_variables keyword for variables not listed in first file to
+read.</p></li>
+<li><p><strong>**kwargs</strong> (<em>keywords</em>) – Keywords to pass through to xarray.open_mfdataset().</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>ds</strong> (<em>xarray.Dataset (or None)</em>) – ACT Xarray dataset (or None if no data file(s) found).</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>This example will load the example sounding data used for unit testing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">act</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">arm</span><span class="o">.</span><span class="n">read_arm_netcdf</span><span class="p">(</span><span class="n">act</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">sample_files</span><span class="o">.</span><span class="n">EXAMPLE_SONDE_WILDCARD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -1622,17 +1656,17 @@ needed ahead of time.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="act.io.read_mfas_sodar.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="act.io.read_arm_mmcr.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">act.io.read_mfas_sodar</p>
+            <p class="prev-next-title">act.io.read_arm_mmcr</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="act.io.read_neon_csv.html" title="next page">
+    <a class='right-next' id="next-link" href="act.io.read_csv.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">act.io.read_neon_csv</p>
+        <p class="prev-next-title">act.io.read_csv</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

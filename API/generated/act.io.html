@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>act.io &#8212; Atmospheric data Community Toolkit 0.post1+g14a9757 documentation</title>
+    <title>act.io &#8212; Atmospheric data Community Toolkit 0.post1+gedc3fe9 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -351,6 +351,16 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="act.io.read_arm_mmcr.html">
+     act.io.read_arm_mmcr
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="act.io.read_arm_netcdf.html">
+     act.io.read_arm_netcdf
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="act.io.read_csv.html">
      act.io.read_csv
     </a>
@@ -401,18 +411,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="act.io.read_mmcr.html">
-     act.io.read_mmcr
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="act.io.read_neon_csv.html">
      act.io.read_neon_csv
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="act.io.read_netcdf.html">
-     act.io.read_netcdf
     </a>
    </li>
    <li class="toctree-l2">
@@ -1627,6 +1627,12 @@
 <tr class="row-even"><td><p><a class="reference internal" href="act.io.proc_sigma_mplv5_read.html#act.io.proc_sigma_mplv5_read" title="act.io.proc_sigma_mplv5_read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">proc_sigma_mplv5_read</span></code></a>(f[, save_nc, ...])</p></td>
 <td><p>Returns <cite>xarray.Dataset</cite> with stored data and metadata from a user-defined SIGMA MPL V5 files.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="act.io.read_arm_mmcr.html#act.io.read_arm_mmcr" title="act.io.read_arm_mmcr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_arm_mmcr</span></code></a>(filenames)</p></td>
+<td><p>Reads in ARM MMCR files and splits up the variables into specific mode variables based on what's in the files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="act.io.read_arm_netcdf.html#act.io.read_arm_netcdf" title="act.io.read_arm_netcdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_arm_netcdf</span></code></a>(filenames[, concat_dim, ...])</p></td>
+<td><p>Returns <cite>xarray.Dataset</cite> with stored data and metadata from a user-defined query of ARM-standard netCDF files from a single datastream.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="act.io.read_csv.html#act.io.read_csv" title="act.io.read_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_csv</span></code></a>(filename[, sep, engine, ...])</p></td>
 <td><p>Returns an <cite>xarray.Dataset</cite> with stored data and metadata from user-defined query of CSV files.</p></td>
 </tr>
@@ -1657,14 +1663,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="act.io.read_mfas_sodar.html#act.io.read_mfas_sodar" title="act.io.read_mfas_sodar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mfas_sodar</span></code></a>(filepath)</p></td>
 <td><p>Returns <cite>xarray.Dataset</cite> with stored data and metadata from a user-defined Flat Array MFAS Sodar file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="act.io.read_mmcr.html#act.io.read_mmcr" title="act.io.read_mmcr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mmcr</span></code></a>(filenames)</p></td>
-<td><p>Reads in ARM MMCR files and splits up the variables into specific mode variables based on what's in the files.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="act.io.read_neon_csv.html#act.io.read_neon_csv" title="act.io.read_neon_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_neon_csv</span></code></a>(files[, variable_files, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="act.io.read_neon_csv.html#act.io.read_neon_csv" title="act.io.read_neon_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_neon_csv</span></code></a>(files[, variable_files, ...])</p></td>
 <td><p>Reads in the NEON formatted csv files from local paths or urls and returns an Xarray dataset.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="act.io.read_netcdf.html#act.io.read_netcdf" title="act.io.read_netcdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_netcdf</span></code></a>(filenames[, concat_dim, ...])</p></td>
-<td><p>Returns <cite>xarray.Dataset</cite> with stored data and metadata from a user-defined query of ARM-standard netCDF files from a single datastream.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="act.io.read_psl_parsivel.html#act.io.read_psl_parsivel" title="act.io.read_psl_parsivel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_psl_parsivel</span></code></a>(files)</p></td>
 <td><p>Returns <cite>xarray.Dataset</cite> with stored data and metadata from a user-defined NOAA PSL parsivel</p></td>
