@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:23.903** total execution time for 24 files **from source/auto_examples/plotting**:
+**00:23.403** total execution time for 24 files **from source/auto_examples/plotting**:
 
 .. container::
 
@@ -33,74 +33,74 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_days.py` (``plot_days.py``)
-     - 00:04.128
-     - 0.0
-   * - :ref:`sphx_glr_source_auto_examples_plotting_plot_ceil.py` (``plot_ceil.py``)
-     - 00:02.542
+     - 00:03.437
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_data_rose.py` (``plot_data_rose.py``)
-     - 00:02.535
+     - 00:02.651
+     - 0.0
+   * - :ref:`sphx_glr_source_auto_examples_plotting_plot_ceil.py` (``plot_ceil.py``)
+     - 00:02.503
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_xsection.py` (``plot_xsection.py``)
-     - 00:01.813
+     - 00:01.856
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_examples.py` (``plot_examples.py``)
-     - 00:01.464
+     - 00:01.459
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_wind_rose.py` (``plot_wind_rose.py``)
-     - 00:01.416
+     - 00:01.433
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_rh_timeseries.py` (``plot_rh_timeseries.py``)
-     - 00:01.152
+     - 00:01.162
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_daytime_averages.py` (``plot_daytime_averages.py``)
-     - 00:01.123
+     - 00:01.140
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_state_variable.py` (``plot_state_variable.py``)
-     - 00:00.992
+     - 00:00.903
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_contour.py` (``plot_contour.py``)
-     - 00:00.769
+     - 00:00.775
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_multiple_column.py` (``plot_multiple_column.py``)
-     - 00:00.747
+     - 00:00.729
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_aaf_track.py` (``plot_aaf_track.py``)
-     - 00:00.695
+     - 00:00.719
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_heatmap.py` (``plot_heatmap.py``)
-     - 00:00.622
+     - 00:00.657
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_scatter.py` (``plot_scatter.py``)
-     - 00:00.566
+     - 00:00.571
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_qc.py` (``plot_qc.py``)
-     - 00:00.499
+     - 00:00.522
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_enhanced_skewt.py` (``plot_enhanced_skewt.py``)
-     - 00:00.491
+     - 00:00.484
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_violin.py` (``plot_violin.py``)
-     - 00:00.448
-     - 0.0
-   * - :ref:`sphx_glr_source_auto_examples_plotting_plot_skewt.py` (``plot_skewt.py``)
-     - 00:00.394
+     - 00:00.452
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_skewt_with_text.py` (``plot_skewt_with_text.py``)
-     - 00:00.339
+     - 00:00.401
+     - 0.0
+   * - :ref:`sphx_glr_source_auto_examples_plotting_plot_skewt.py` (``plot_skewt.py``)
+     - 00:00.337
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_size_distribution.py` (``plot_size_distribution.py``)
-     - 00:00.290
+     - 00:00.292
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_sonde.py` (``plot_sonde.py``)
-     - 00:00.272
+     - 00:00.277
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_presentweathercode.py` (``plot_presentweathercode.py``)
-     - 00:00.269
+     - 00:00.271
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_secondary_y.py` (``plot_secondary_y.py``)
-     - 00:00.226
+     - 00:00.263
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_plotting_plot_hist_kwargs.py` (``plot_hist_kwargs.py``)
-     - 00:00.111
+     - 00:00.110
      - 0.0
