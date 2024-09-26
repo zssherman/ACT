@@ -151,6 +151,10 @@ Author: Ken Kehoe
 
       :download:`Download Python source code: plot_state_variable.py <plot_state_variable.py>`
 
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_state_variable.zip <plot_state_variable.zip>`
+
 
 .. only:: html
 

@@ -137,6 +137,10 @@ Author: Joe O'Brien
 
       :download:`Download Python source code: plot_presentweathercode.py <plot_presentweathercode.py>`
 
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_presentweathercode.zip <plot_presentweathercode.zip>`
+
 
 .. only:: html
 
