@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:04.829** total execution time for 5 files **from source/auto_examples/qc**:
+**00:06.020** total execution time for 5 files **from source/auto_examples/qc**:
 
 .. container::
 
@@ -33,13 +33,13 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_source_auto_examples_qc_plot_arm_qc.py` (``plot_arm_qc.py``)
-     - 00:03.009
+     - 00:04.139
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_qc_plot_qc_bsrn.py` (``plot_qc_bsrn.py``)
-     - 00:01.244
+     - 00:01.290
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_qc_plot_dqr_qc.py` (``plot_dqr_qc.py``)
-     - 00:00.341
+     - 00:00.357
      - 0.0
    * - :ref:`sphx_glr_source_auto_examples_qc_plot_force_line_qc.py` (``plot_force_line_qc.py``)
      - 00:00.183
