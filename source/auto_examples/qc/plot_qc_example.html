@@ -382,7 +382,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../io/index.html">Input/Output Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../io/plot_hysplit.html">Read and plot a HYSPLIT trajectory file from a HYSPlIT run.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../io/read_raw_minimpl.html">Read and plot a PPI from raw mini-MPL data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/plot_raw_minimpl.html">Read and plot a PPI from raw mini-MPL data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../io/plot_sodar.html">Read and plot a Sodar file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../io/plot_surfrad.html">Plot SurfRad Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../io/plot_icartt.html">Plot ICARTT Formatted Files</a></li>
@@ -447,6 +447,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../workflows/plot_aerioe_with_cbh.html">Plot AERIoe data with cloud base height from ceilometer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../workflows/plot_weighted_average.html">Calculate and plot weighted means</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../workflows/plot_merged_product.html">Merge multiple datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/plot_amf3_comparisons.html">Consolidation of Data Sources</a></li>
 </ul>
 </details></li>
 </ul>
@@ -528,7 +529,7 @@ Data type = &lt;class &#39;numpy.ndarray&#39;&gt;
 data = [   nan 7.8777 7.8965 ...    nan    nan    nan]
 
 QC Variable = &lt;xarray.DataArray &#39;qc_inst_up_long_dome_resist&#39; (time: 4320)&gt; Size: 17kB
-array([1, 0, 0, ..., 2, 2, 2], dtype=int32)
+array([1, 0, 0, ..., 2, 2, 2], shape=(4320,), dtype=int32)
 Coordinates:
   * time     (time) datetime64[ns] 35kB 2019-06-01 ... 2019-06-01T23:59:40
 Attributes:
