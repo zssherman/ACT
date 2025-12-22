@@ -25,7 +25,7 @@ Example to download and plot AERIoe
 temperature and water vapor overlaying
 ceilometer cloud base height(cbh).
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-94
+.. GENERATED FROM PYTHON SOURCE LINES 11-95
 
 
 
@@ -36,8 +36,9 @@ ceilometer cloud base height(cbh).
 .. code-block:: Python
 
 
-    import matplotlib.pyplot as plt
     import os
+
+    import matplotlib.pyplot as plt
 
     import act
 

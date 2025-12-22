@@ -25,7 +25,7 @@ This example shows the different ways to pull
 air quality information from EPA's AirNow API for
 a station near to SGP
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-54
+.. GENERATED FROM PYTHON SOURCE LINES 10-56
 
 
 
@@ -37,7 +37,9 @@ a station near to SGP
 
 
     import os
+
     import matplotlib.pyplot as plt
+
     import act
 
     # You need an account and token from https://docs.airnowapi.org/ first
