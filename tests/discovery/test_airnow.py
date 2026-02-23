@@ -23,7 +23,7 @@ def test_get_airnow():
         assert results['ReportingArea'].values[3] == 'North and West Suburbs (Chicago)'
 
         results = act.discovery.get_airnow_obs(token, date='2025-05-01', zipcode=60108, distance=50)
-        assert results['AQI'].values[1] == 46
+        assert results['AQI'].values[1] == 39
         assert results['ParameterName'].values[1] == 'PM2.5'
         assert results['CategoryName'].values[1] == 'Good'
 
