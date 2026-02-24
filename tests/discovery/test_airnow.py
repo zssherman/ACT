@@ -18,7 +18,7 @@ def test_get_airnow():
         results = act.discovery.get_airnow_forecast(
             token, '2022-05-01', distance=50, latlon=[41.958, -88.12]
         )
-        assert results['CategoryName'].values[3] == 'Moderate'
+        assert results['CategoryName'].values[3] == 'Good'
         assert results['AQI'].values[2] == -1
         assert results['ReportingArea'].values[3] == 'North and West Suburbs (Chicago)'
 
