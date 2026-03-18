@@ -446,30 +446,34 @@ class QCTests:
             Value used in longwave down less than longwave up test.
         LWdn_gt_LWup_component : int or float
             Value used in longwave down greater than longwave up test.
-        use_dask : boolean
+        use_dask : bool
             Option to use Dask for processing if data is stored in a Dask array
 
         References
         ----------
         Long, Charles N., and Ellsworth G. Dutton. "BSRN Global Network recommended QC tests, V2. x." (2010).
         Long, Charles N., and Y. Shi.  “An Automated Quality Assessment and Control Algorithm for Surface
-            Radiation Measurements.” (2008) https://doi.org/10.2174/1874282300802010023
+        Radiation Measurements.” (2008) https://doi.org/10.2174/1874282300802010023
 
         Examples
         --------
-            .. code-block:: python
 
-                ds = act.io.arm.read_arm_netcdf(act.tests.EXAMPLE_BRS, cleanup_qc=True)
-                ds.qcfilter.bsrn_comparison_tests(
-                    gbl_SW_dn_name='down_short_hemisp',
-                    glb_diffuse_SW_dn_name='down_short_diffuse_hemisp',
-                    direct_normal_SW_dn_name='short_direct_normal',
-                    glb_SW_up_name='up_short_hemisp',
-                    glb_LW_dn_name='down_long_hemisp_shaded',
-                    glb_LW_up_name='up_long_hemisp',
-                    use_dask=True)
+        An example on how to add BSRN comparison tests:
+
+        .. code-block:: python
+
+            ds = act.io.arm.read_arm_netcdf(act.tests.EXAMPLE_BRS, cleanup_qc=True)
+            ds.qcfilter.bsrn_comparison_tests(
+                gbl_SW_dn_name='down_short_hemisp',
+                glb_diffuse_SW_dn_name='down_short_diffuse_hemisp',
+                direct_normal_SW_dn_name='short_direct_normal',
+                glb_SW_up_name='up_short_hemisp',
+                glb_LW_dn_name='down_long_hemisp_shaded',
+                glb_LW_up_name='up_long_hemisp',
+                use_dask=True
+            )
+
         """
-
         if isinstance(test, str):
             test = [test]
 
