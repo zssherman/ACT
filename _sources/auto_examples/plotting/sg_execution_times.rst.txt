@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:26.406** total execution time for 29 files **from auto_examples/plotting**:
+**00:17.800** total execution time for 29 files **from auto_examples/plotting**:
 
 .. container::
 
@@ -33,89 +33,89 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_plotting_plot_satellite.py` (``plot_satellite.py``)
-     - 00:03.265
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_ceil.py` (``plot_ceil.py``)
-     - 00:02.342
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_days.py` (``plot_days.py``)
-     - 00:02.144
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_xsection.py` (``plot_xsection.py``)
-     - 00:01.981
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_data_rose.py` (``plot_data_rose.py``)
-     - 00:01.784
+     - 00:03.263
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_groups.py` (``plot_groups.py``)
-     - 00:01.424
+     - 00:01.807
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_examples.py` (``plot_examples.py``)
-     - 00:01.412
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_ceil.py` (``plot_ceil.py``)
+     - 00:01.347
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_days.py` (``plot_days.py``)
+     - 00:01.142
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_xsection.py` (``plot_xsection.py``)
+     - 00:01.026
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_data_rose.py` (``plot_data_rose.py``)
+     - 00:00.981
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_wind_rose.py` (``plot_wind_rose.py``)
-     - 00:01.358
+     - 00:00.816
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_examples.py` (``plot_examples.py``)
+     - 00:00.814
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_rh_timeseries.py` (``plot_rh_timeseries.py``)
-     - 00:01.137
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_daytime_averages.py` (``plot_daytime_averages.py``)
-     - 00:00.946
+     - 00:00.646
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_contour.py` (``plot_contour.py``)
-     - 00:00.938
+     - 00:00.611
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_daytime_averages.py` (``plot_daytime_averages.py``)
+     - 00:00.530
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_state_variable.py` (``plot_state_variable.py``)
-     - 00:00.867
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_qc.py` (``plot_qc.py``)
-     - 00:00.744
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_multiple_column.py` (``plot_multiple_column.py``)
-     - 00:00.689
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_aaf_track.py` (``plot_aaf_track.py``)
-     - 00:00.676
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_heatmap.py` (``plot_heatmap.py``)
-     - 00:00.618
+     - 00:00.504
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_scatter.py` (``plot_scatter.py``)
-     - 00:00.601
+     - 00:00.451
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_time_height_scatter.py` (``plot_time_height_scatter.py``)
-     - 00:00.479
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_aaf_track.py` (``plot_aaf_track.py``)
+     - 00:00.407
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_violin.py` (``plot_violin.py``)
-     - 00:00.467
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_skewt.py` (``plot_skewt.py``)
-     - 00:00.448
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_enhanced_skewt.py` (``plot_enhanced_skewt.py``)
-     - 00:00.432
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_skewt_with_text.py` (``plot_skewt_with_text.py``)
-     - 00:00.322
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_presentweathercode.py` (``plot_presentweathercode.py``)
-     - 00:00.273
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_size_distribution.py` (``plot_size_distribution.py``)
-     - 00:00.253
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_sonde.py` (``plot_sonde.py``)
-     - 00:00.241
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plotting_plot_secondary_y.py` (``plot_secondary_y.py``)
-     - 00:00.212
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_qc.py` (``plot_qc.py``)
+     - 00:00.399
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_stripes.py` (``plot_stripes.py``)
-     - 00:00.179
+     - 00:00.393
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_multiple_column.py` (``plot_multiple_column.py``)
+     - 00:00.377
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_heatmap.py` (``plot_heatmap.py``)
+     - 00:00.360
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_violin.py` (``plot_violin.py``)
+     - 00:00.290
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_skewt.py` (``plot_skewt.py``)
+     - 00:00.258
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_time_height_scatter.py` (``plot_time_height_scatter.py``)
+     - 00:00.258
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_enhanced_skewt.py` (``plot_enhanced_skewt.py``)
+     - 00:00.241
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_skewt_with_text.py` (``plot_skewt_with_text.py``)
+     - 00:00.219
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_presentweathercode.py` (``plot_presentweathercode.py``)
+     - 00:00.155
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_size_distribution.py` (``plot_size_distribution.py``)
+     - 00:00.139
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_sonde.py` (``plot_sonde.py``)
+     - 00:00.134
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plotting_plot_secondary_y.py` (``plot_secondary_y.py``)
+     - 00:00.129
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_hist_kwargs.py` (``plot_hist_kwargs.py``)
-     - 00:00.096
+     - 00:00.055
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plotting_plot_pie_chart.py` (``plot_pie_chart.py``)
-     - 00:00.078
+     - 00:00.047
      - 0.0
