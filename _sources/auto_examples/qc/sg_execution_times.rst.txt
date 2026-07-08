@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:05.352** total execution time for 8 files **from auto_examples/qc**:
+**00:09.335** total execution time for 8 files **from auto_examples/qc**:
 
 .. container::
 
@@ -33,26 +33,26 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_qc_plot_arm_qc.py` (``plot_arm_qc.py``)
-     - 00:02.564
+     - 00:04.840
      - 0.0
    * - :ref:`sphx_glr_auto_examples_qc_plot_relative_variability.py` (``plot_relative_variability.py``)
-     - 00:00.848
+     - 00:01.668
      - 0.0
    * - :ref:`sphx_glr_auto_examples_qc_plot_qc_bsrn.py` (``plot_qc_bsrn.py``)
-     - 00:00.839
+     - 00:01.649
      - 0.0
    * - :ref:`sphx_glr_auto_examples_qc_plot_dqr_print.py` (``plot_dqr_print.py``)
-     - 00:00.500
+     - 00:00.339
      - 0.0
    * - :ref:`sphx_glr_auto_examples_qc_plot_dqr_qc.py` (``plot_dqr_qc.py``)
-     - 00:00.345
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_qc_plot_qc_step_change.py` (``plot_qc_step_change.py``)
-     - 00:00.113
+     - 00:00.315
      - 0.0
    * - :ref:`sphx_glr_auto_examples_qc_plot_force_line_qc.py` (``plot_force_line_qc.py``)
-     - 00:00.111
+     - 00:00.238
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_qc_plot_qc_step_change.py` (``plot_qc_step_change.py``)
+     - 00:00.228
      - 0.0
    * - :ref:`sphx_glr_auto_examples_qc_plot_qc_example.py` (``plot_qc_example.py``)
-     - 00:00.032
+     - 00:00.059
      - 0.0
