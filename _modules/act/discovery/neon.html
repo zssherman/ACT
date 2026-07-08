@@ -458,7 +458,7 @@
 
 <div class="viewcode-block" id="get_neon_site_products">
 <a class="viewcode-back" href="../../../API/generated/act.discovery.get_neon_site_products.html#act.discovery.get_neon_site_products">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_neon_site_products</span><span class="p">(</span><span class="n">site_code</span><span class="p">,</span> <span class="n">print_to_screen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_neon_site_products</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">site_code</span><span class="p">,</span> <span class="n">print_to_screen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a list of data products available for a NEON site</span>
 <span class="sd">    NEON sites can be found through the NEON website</span>
@@ -466,6 +466,8 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    token : str</span>
+<span class="sd">        The access token for the NEON API web server.</span>
 <span class="sd">    site : str</span>
 <span class="sd">        NEON site identifier. Required variable</span>
 <span class="sd">    print_to_screen : boolean</span>
@@ -481,8 +483,11 @@
     <span class="c1"># Every request begins with the server&#39;s URL</span>
     <span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;http://data.neonscience.org/api/v0/&#39;</span>
 
+    <span class="c1"># Add token to headers</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;X-API-TOKEN&quot;</span><span class="p">:</span> <span class="n">token</span><span class="p">}</span>
+
     <span class="c1"># Make request, using the sites/ endpoint</span>
-    <span class="n">site_request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">server</span> <span class="o">+</span> <span class="s1">&#39;sites/&#39;</span> <span class="o">+</span> <span class="n">site_code</span><span class="p">)</span>
+    <span class="n">site_request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">server</span> <span class="o">+</span> <span class="s1">&#39;sites/&#39;</span> <span class="o">+</span> <span class="n">site_code</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
     <span class="c1"># Convert to Python JSON object</span>
     <span class="n">site_json</span> <span class="o">=</span> <span class="n">site_request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -500,7 +505,7 @@
 
 <div class="viewcode-block" id="get_neon_product_avail">
 <a class="viewcode-back" href="../../../API/generated/act.discovery.get_neon_product_avail.html#act.discovery.get_neon_product_avail">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_neon_product_avail</span><span class="p">(</span><span class="n">site_code</span><span class="p">,</span> <span class="n">product_code</span><span class="p">,</span> <span class="n">print_to_screen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_neon_product_avail</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">site_code</span><span class="p">,</span> <span class="n">product_code</span><span class="p">,</span> <span class="n">print_to_screen</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a list of data products available for a NEON site</span>
 <span class="sd">    NEON sites can be found through the NEON website</span>
@@ -508,6 +513,8 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
+<span class="sd">    token : str</span>
+<span class="sd">        The access token for the NEON API web server.</span>
 <span class="sd">    site : str</span>
 <span class="sd">        NEON site identifier. Required variable</span>
 <span class="sd">    product_code : str</span>
@@ -525,8 +532,11 @@
     <span class="c1"># Every request begins with the server&#39;s URL</span>
     <span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;http://data.neonscience.org/api/v0/&#39;</span>
 
+    <span class="c1"># Add token to headers</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;X-API-TOKEN&quot;</span><span class="p">:</span> <span class="n">token</span><span class="p">}</span>
+
     <span class="c1"># Make request, using the sites/ endpoint</span>
-    <span class="n">site_request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">server</span> <span class="o">+</span> <span class="s1">&#39;sites/&#39;</span> <span class="o">+</span> <span class="n">site_code</span><span class="p">)</span>
+    <span class="n">site_request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">server</span> <span class="o">+</span> <span class="s1">&#39;sites/&#39;</span> <span class="o">+</span> <span class="n">site_code</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
     <span class="c1"># Convert to Python JSON object</span>
     <span class="n">site_json</span> <span class="o">=</span> <span class="n">site_request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
