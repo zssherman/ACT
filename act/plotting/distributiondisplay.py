@@ -1,9 +1,12 @@
 """Module for Distribution Plotting."""
 
+import warnings
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import xarray as xr
+from scipy import stats
 
 from ..utils import calculate_percentages
 from ..utils import datetime_utils as dt_utils
@@ -667,6 +670,13 @@ class DistributionDisplay(Display):
         cbar_label=None,
         set_title=None,
         subplot_index=(0,),
+        add_linregress=False,
+        linregress_kwargs=None,
+        ci=95,
+        ci_color='gray',
+        ci_alpha=0.3,
+        n_boot=1000,
+        n_boot_seed=None,
         **kwargs,
     ):
         """
@@ -681,7 +691,7 @@ class DistributionDisplay(Display):
         m_field : str
             The name of the field to display on the markers.
         cbar_label : str
-            The desired name to plot for the colorbar
+            The desired name to plot for the colorbar.
         set_title : str
             The desired title for the plot.
             Default title is created from the datastream.
@@ -689,7 +699,36 @@ class DistributionDisplay(Display):
             The name of the datastream the field is contained in. Set
             to None to let ACT automatically determine this.
         subplot_index : tuple
-            The subplot index to place the plot in
+            The subplot index to place the plot in.
+        add_linregress : bool
+            Set to True to add a bootstrapped linear regression line to the
+            scatter plot, along with the equation, R², and p-value annotation.
+            Default is False.
+        linregress_kwargs : dict or None
+            Optional keyword arguments to customize the regression line
+            appearance. These are passed into :func:`matplotlib.pyplot.plot`.
+            Example: ``{'color': 'red', 'linewidth': 2, 'linestyle': '--'}``
+            Default is None, which will use ``{'color': 'k', 'linewidth': 1.5}``.
+        ci : int or None
+            The confidence interval level to display as a shaded region around
+            the regression line. Must be between 1 and 99. Set to None to
+            disable the confidence interval shading. Default is 95.
+        ci_color : str
+            The color of the confidence interval shading band.
+            Default is 'gray'.
+        ci_alpha : float
+            The transparency (alpha) of the confidence interval shading band.
+            Must be between 0 (fully transparent) and 1 (fully opaque).
+            Default is 0.3.
+        n_boot : int
+            Number of bootstrap iterations used to estimate the confidence
+            interval. Higher values produce a smoother and more accurate band
+            but take longer to compute. Only used when ``add_linregress=True``
+            and ``ci`` is not None. Default is 1000.
+        n_boot_seed : int or None
+            Random seed for the bootstrap resampling, used to ensure
+            reproducibility. Set to None for a different result each run.
+            Default is None.
 
         Other keyword arguments will be passed into :func:`matplotlib.pyplot.scatter`.
 
@@ -716,7 +755,7 @@ class DistributionDisplay(Display):
             ds = self._get_data(dsname, [x_field, y_field, m_field])
             xdata, ydata, mdata = ds[x_field], ds[y_field], ds[m_field]
 
-        # Define the x-axis label. If units are avaiable, plot.
+        # Define the x-axis label. If units are available, plot.
         if 'units' in xdata.attrs:
             xtitle = x_field + ''.join([' (', xdata.attrs['units'], ')'])
         else:
@@ -728,7 +767,7 @@ class DistributionDisplay(Display):
         else:
             ytitle = y_field
 
-        # Get the current plotting axis, add day/night background and plot data
+        # Get the current plotting axis
         if self.fig is None:
             self.fig = plt.figure()
 
@@ -737,8 +776,101 @@ class DistributionDisplay(Display):
             self.axes = np.array([plt.axes()])
             self.fig.add_axes(self.axes[0])
 
-        # Display the scatter plot, pass keyword args for unspecified attributes
-        scc = self.axes[subplot_index].scatter(xdata, ydata, c=mdata, **kwargs)
+        # --- Linear Regression (done BEFORE scatter so shading is behind points) ---
+        if add_linregress:
+            from scipy import stats
+
+            # Validate parameters
+            if ci is not None and not (1 <= ci <= 99):
+                raise ValueError('ci must be between 1 and 99, or None to disable shading.')
+            if not (0.0 <= ci_alpha <= 1.0):
+                raise ValueError('ci_alpha must be between 0 and 1.')
+            if ci is not None and (not isinstance(n_boot, int) or n_boot < 1):
+                raise ValueError('n_boot must be a positive integer.')
+
+            # Flatten and remove NaNs
+            x_vals = np.array(xdata).flatten()
+            y_vals = np.array(ydata).flatten()
+            mask = np.isfinite(x_vals) & np.isfinite(y_vals)
+            x_clean = x_vals[mask]
+            y_clean = y_vals[mask]
+
+            if len(x_clean) > 1:
+                slope, intercept, r_value, p_value, std_err = stats.linregress(x_clean, y_clean)
+
+                # Generate regression line
+                x_line = np.linspace(x_clean.min(), x_clean.max(), 300)
+                y_line = slope * x_line + intercept
+
+                # --- Bootstrapped Confidence Interval shading FIRST ---
+                if ci is not None:
+                    rng = np.random.default_rng(seed=n_boot_seed)
+                    boot_predictions = np.zeros((n_boot, len(x_line)))
+
+                    for i in range(n_boot):
+                        boot_idx = rng.integers(0, len(x_clean), size=len(x_clean))
+                        x_boot = x_clean[boot_idx]
+                        y_boot = y_clean[boot_idx]
+                        boot_slope, boot_intercept, *_ = stats.linregress(x_boot, y_boot)
+                        boot_predictions[i] = boot_slope * x_line + boot_intercept
+
+                    lower_pct = (100 - ci) / 2.0
+                    upper_pct = 100 - lower_pct
+                    y_lower = np.percentile(boot_predictions, lower_pct, axis=0)
+                    y_upper = np.percentile(boot_predictions, upper_pct, axis=0)
+
+                    # zorder=1 ensures shading is behind everything
+                    self.axes[subplot_index].fill_between(
+                        x_line,
+                        y_lower,
+                        y_upper,
+                        color=ci_color,
+                        alpha=ci_alpha,
+                        label=f'{ci}% Bootstrapped CI (n={n_boot})',
+                        zorder=3,
+                    )
+
+                # --- Regression line SECOND (above shading, below points) ---
+                default_linregress_kwargs = {'color': 'k', 'linewidth': 1.5, 'zorder': 3}
+                if linregress_kwargs is not None:
+                    default_linregress_kwargs.update(linregress_kwargs)
+
+                self.axes[subplot_index].plot(x_line, y_line, **default_linregress_kwargs)
+
+                # --- Format p-value ---
+                if p_value == 0.0:
+                    p_str = '< 1e-300'
+                elif p_value < 0.001:
+                    p_str = f'{p_value:.4e}'
+                else:
+                    p_str = f'{p_value:.4f}'
+
+                # --- Annotation ---
+                sign = '+' if intercept >= 0 else '-'
+                annotation = (
+                    f'y = {slope:.4f}x {sign} {abs(intercept):.4f}\n'
+                    f'$R^2$ = {r_value**2:.4f}, p = {p_str}\n'
+                    f'N = {len(x_clean)}'
+                )
+
+                self.axes[subplot_index].annotate(
+                    annotation,
+                    xy=(0.05, 0.95),
+                    xycoords='axes fraction',
+                    fontsize=9,
+                    verticalalignment='top',
+                    bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.7),
+                )
+            else:
+                import warnings
+
+                warnings.warn(
+                    'Not enough valid data points to compute linear regression.',
+                    RuntimeWarning,
+                )
+
+        # --- Scatter plotted LAST so points appear on top ---
+        scc = self.axes[subplot_index].scatter(xdata, ydata, c=mdata, zorder=2, **kwargs)
 
         # Set Title
         if set_title is None:
@@ -753,18 +885,16 @@ class DistributionDisplay(Display):
         # Check to see if a colorbar label was set
         if mdata is not None:
             if cbar_label is None:
-                # Define the y-axis label. If units are available, plot
                 if 'units' in mdata.attrs:
                     ztitle = m_field + ''.join([' (', mdata.attrs['units'], ')'])
                 else:
                     ztitle = m_field
             else:
                 ztitle = cbar_label
-            # Plot the colorbar
             cbar = plt.colorbar(scc)
             cbar.ax.set_ylabel(ztitle)
 
-        # Define the axe title, x-axis label, y-axis label
+        # Define the axis title, x-axis label, y-axis label
         self.axes[subplot_index].set_title(set_title)
         self.axes[subplot_index].set_ylabel(ytitle)
         self.axes[subplot_index].set_xlabel(xtitle)
@@ -979,3 +1109,14 @@ class DistributionDisplay(Display):
             **kwargs,
         )
         return self.axes[subplot_index]
+
+
+def _format_p_value(p):
+    """Format p-value string handling floating point underflow."""
+    if p == 0.0:
+        # Underflow to zero, value is below float precision limit
+        return '< 1e-300'
+    elif p < 0.001:
+        return f'{p:.4e}'
+    else:
+        return f'{p:.4f}'
