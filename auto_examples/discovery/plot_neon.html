@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -42,10 +42,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/act-theme.css?v=e2ee527d" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -472,7 +472,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../retrievals/index.html">Retrieval examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_get_stability_indices_example.html">Retrieve stability indicies from a sounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_tucker_dl.html">Example for using the Tucker method to retrieve the planetary boundary layer height from Doppler lidar data.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_cbh_sobel.html">Cloud Base Height Retrievals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_profile_fit_pbl.html">Planetary Boundary Layer Height Gradient Method Retrievals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_wavelet_pbl.html">Planetary Boundary Layer Height Wavelet Method Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_gradient_pbl.html">Planetary Boundary Layer Height Gradient Method Retrievals</a></li>
 </ul>
 </details></li>
@@ -573,41 +576,41 @@ on the North Slope and plot them</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">act</span>
 
 <span class="c1"># Place your username and token here</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">username</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getenv" title="os.getenv" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getenv</span></a><span class="p">(</span><span class="s1">&#39;ARM_USERNAME&#39;</span><span class="p">)</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getenv" title="os.getenv" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getenv</span></a><span class="p">(</span><span class="s1">&#39;ARM_PASSWORD&#39;</span><span class="p">)</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">neon_token</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getenv" title="os.getenv" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getenv</span></a><span class="p">(</span><span class="s1">&#39;NEON_API&#39;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">username</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getenv" title="os.getenv" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getenv</span></a><span class="p">(</span><span class="s1">'ARM_USERNAME'</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getenv" title="os.getenv" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getenv</span></a><span class="p">(</span><span class="s1">'ARM_PASSWORD'</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">neon_token</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getenv" title="os.getenv" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getenv</span></a><span class="p">(</span><span class="s1">'NEON_API'</span><span class="p">)</span>
 
 <span class="k">if</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="c1"># Download ARM data if a username/token are set</span>
     <span class="n">files</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">download_arm_data</span><span class="p">(</span>
-        <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">username</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a><span class="p">,</span> <span class="s1">&#39;nsametC1.b1&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-10-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-10-07&#39;</span>
+        <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">username</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">token</span></a><span class="p">,</span> <span class="s1">'nsametC1.b1'</span><span class="p">,</span> <span class="s1">'2022-10-01'</span><span class="p">,</span> <span class="s1">'2022-10-07'</span>
     <span class="p">)</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">arm</span><span class="o">.</span><span class="n">read_arm_netcdf</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
 
     <span class="c1"># Download NEON Data</span>
     <span class="c1"># NEON sites can be found through the NEON website</span>
     <span class="c1"># https://www.neonscience.org/field-sites/explore-field-sites</span>
-    <span class="n">site_code</span> <span class="o">=</span> <span class="s1">&#39;BARR&#39;</span>
-    <span class="n">product_code</span> <span class="o">=</span> <span class="s1">&#39;DP1.00002.001&#39;</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">neon</span><span class="o">.</span><span class="n">download_neon_data</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">neon_token</span></a><span class="p">,</span> <span class="n">site_code</span><span class="p">,</span> <span class="n">product_code</span><span class="p">,</span> <span class="s1">&#39;2022-10&#39;</span><span class="p">)</span>
+    <span class="n">site_code</span> <span class="o">=</span> <span class="s1">'BARR'</span>
+    <span class="n">product_code</span> <span class="o">=</span> <span class="s1">'DP1.00002.001'</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">neon</span><span class="o">.</span><span class="n">download_neon_data</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">neon_token</span></a><span class="p">,</span> <span class="n">site_code</span><span class="p">,</span> <span class="n">product_code</span><span class="p">,</span> <span class="s1">'2022-10'</span><span class="p">)</span>
 
-    <span class="c1"># A number of files are downloaded and further explained in the readme file that&#39;s downloaded.</span>
+    <span class="c1"># A number of files are downloaded and further explained in the readme file that's downloaded.</span>
     <span class="c1"># These are the files we will need for reading 1 minute NEON data</span>
     <span class="n">file</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/glob.html#glob.glob" title="glob.glob" class="sphx-glr-backref-module-glob sphx-glr-backref-type-py-function"><span class="n">glob</span><span class="o">.</span><span class="n">glob</span></a><span class="p">(</span>
         <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span>
-            <span class="s1">&#39;.&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;BARR_DP1.00002.001&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;NEON.D18.BARR.DP1.00002.001.000.010.001.SAAT_1min.2022-10.expanded.*.csv&#39;</span><span class="p">,</span>
+            <span class="s1">'.'</span><span class="p">,</span>
+            <span class="s1">'BARR_DP1.00002.001'</span><span class="p">,</span>
+            <span class="s1">'NEON.D18.BARR.DP1.00002.001.000.010.001.SAAT_1min.2022-10.expanded.*.csv'</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="p">)</span>
     <span class="n">variable_file</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/glob.html#glob.glob" title="glob.glob" class="sphx-glr-backref-module-glob sphx-glr-backref-type-py-function"><span class="n">glob</span><span class="o">.</span><span class="n">glob</span></a><span class="p">(</span>
-        <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;BARR_DP1.00002.001&#39;</span><span class="p">,</span> <span class="s1">&#39;NEON.D18.BARR.DP1.00002.001.variables.*.csv&#39;</span><span class="p">)</span>
+        <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">'BARR_DP1.00002.001'</span><span class="p">,</span> <span class="s1">'NEON.D18.BARR.DP1.00002.001.variables.*.csv'</span><span class="p">)</span>
     <span class="p">)</span>
     <span class="n">position_file</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/glob.html#glob.glob" title="glob.glob" class="sphx-glr-backref-module-glob sphx-glr-backref-type-py-function"><span class="n">glob</span><span class="o">.</span><span class="n">glob</span></a><span class="p">(</span>
         <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span>
-            <span class="s1">&#39;.&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;BARR_DP1.00002.001&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;NEON.D18.BARR.DP1.00002.001.sensor_positions.*.csv&#39;</span><span class="p">,</span>
+            <span class="s1">'.'</span><span class="p">,</span>
+            <span class="s1">'BARR_DP1.00002.001'</span><span class="p">,</span>
+            <span class="s1">'NEON.D18.BARR.DP1.00002.001.sensor_positions.*.csv'</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="p">)</span>
     <span class="c1"># Read in the data using the ACT reader, passing with it the variable and position files</span>
@@ -615,10 +618,10 @@ on the North Slope and plot them</p>
     <span class="n">ds2</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_neon_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">variable_files</span><span class="o">=</span><span class="n">variable_file</span><span class="p">,</span> <span class="n">position_files</span><span class="o">=</span><span class="n">position_file</span><span class="p">)</span>
 
     <span class="c1"># Plot up the two datasets</span>
-    <span class="n">display</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">TimeSeriesDisplay</span><span class="p">({</span><span class="s1">&#39;ARM&#39;</span><span class="p">:</span> <span class="n">ds</span><span class="p">,</span> <span class="s1">&#39;NEON&#39;</span><span class="p">:</span> <span class="n">ds2</span><span class="p">})</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;temp_mean&#39;</span><span class="p">,</span> <span class="s1">&#39;ARM&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ARM&#39;</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;tempSingleMean&#39;</span><span class="p">,</span> <span class="s1">&#39;NEON&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NEON&#39;</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">day_night_background</span><span class="p">(</span><span class="s1">&#39;ARM&#39;</span><span class="p">)</span>
+    <span class="n">display</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">TimeSeriesDisplay</span><span class="p">({</span><span class="s1">'ARM'</span><span class="p">:</span> <span class="n">ds</span><span class="p">,</span> <span class="s1">'NEON'</span><span class="p">:</span> <span class="n">ds2</span><span class="p">})</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'temp_mean'</span><span class="p">,</span> <span class="s1">'ARM'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'ARM'</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'tempSingleMean'</span><span class="p">,</span> <span class="s1">'NEON'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'NEON'</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">day_night_background</span><span class="p">(</span><span class="s1">'ARM'</span><span class="p">)</span>
     <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
@@ -701,8 +704,8 @@ on the North Slope and plot them</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -736,7 +739,7 @@ on the North Slope and plot them</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
 </p></div>
       
     </div>

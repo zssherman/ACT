@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -42,10 +42,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/act-theme.css?v=e2ee527d" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -472,7 +472,10 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../retrievals/index.html">Retrieval examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_get_stability_indices_example.html">Retrieve stability indicies from a sounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_tucker_dl.html">Example for using the Tucker method to retrieve the planetary boundary layer height from Doppler lidar data.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_cbh_sobel.html">Cloud Base Height Retrievals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_profile_fit_pbl.html">Planetary Boundary Layer Height Gradient Method Retrievals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_wavelet_pbl.html">Planetary Boundary Layer Height Wavelet Method Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrievals/plot_gradient_pbl.html">Planetary Boundary Layer Height Gradient Method Retrievals</a></li>
 </ul>
 </details></li>
@@ -574,7 +577,7 @@ assign_to_figure_axis.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">act</span>
 
 <span class="c1"># Read CCN data in from the test data area</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename_ccn</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpaosccn2colaE13.b1.20170903.000000.nc&#39;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename_ccn</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">'sgpaosccn2colaE13.b1.20170903.000000.nc'</span><span class="p">)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">arm</span><span class="o">.</span><span class="n">read_arm_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename_ccn</span></a><span class="p">)</span>
 
 <span class="c1"># Create a DistributionDisplay object</span>
@@ -582,19 +585,19 @@ assign_to_figure_axis.</p>
 
 <span class="c1"># Create a size distribution plot while plotting the</span>
 <span class="c1"># size distribution in the second plot</span>
-<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.datetime64" title="numpy.datetime64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_ind</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.datetime64" title="numpy.datetime64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class"><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span></a><span class="p">(</span><span class="s1">&#39;2017-09-03T15:47:31&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="o">.</span><span class="n">plot_size_distribution</span><span class="p">(</span><span class="s1">&#39;N_CCN_dN&#39;</span><span class="p">,</span> <span class="s1">&#39;droplet_size&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.datetime64" title="numpy.datetime64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_ind</span></a><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.datetime64" title="numpy.datetime64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_ind</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.datetime64" title="numpy.datetime64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class"><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span></a><span class="p">(</span><span class="s1">'2017-09-03T15:47:31'</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">plot_size_distribution</span><span class="p">(</span><span class="s1">'N_CCN_dN'</span><span class="p">,</span> <span class="s1">'droplet_size'</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.datetime64" title="numpy.datetime64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_ind</span></a><span class="p">,</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
 
 <span class="c1"># This part shows how you can use different display types in a single plot</span>
 <span class="c1"># by assigning the new display object to a figure and axes from the first one.</span>
 <span class="n">display2</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">TimeSeriesDisplay</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
 <span class="n">display2</span><span class="o">.</span><span class="n">assign_to_figure_axis</span><span class="p">(</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">display</span><span class="o">.</span><span class="n">fig</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">display</span><span class="o">.</span><span class="n">axes</span></a><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">display2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;N_CCN_dN&#39;</span><span class="p">)</span>
+<span class="n">display2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'N_CCN_dN'</span><span class="p">)</span>
 
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.253 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.264 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plotting-plot-size-distribution-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b4d8a1c419be0ad4f3aab25d2c8a488c/plot_size_distribution.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_size_distribution.ipynb</span></code></a></p>
@@ -673,8 +676,8 @@ assign_to_figure_axis.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -708,7 +711,7 @@ assign_to_figure_axis.</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
 </p></div>
       
     </div>

@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -42,10 +42,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/act-theme.css?v=e2ee527d" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -77,7 +77,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Utility examples" href="../utils/index.html" />
-    <link rel="prev" title="Cloud Base Height Retrievals" href="plot_cbh_sobel.html" /> 
+    <link rel="prev" title="Planetary Boundary Layer Height Wavelet Method Retrieval" href="plot_wavelet_pbl.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.0" />
@@ -472,7 +472,10 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Retrieval examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_get_stability_indices_example.html">Retrieve stability indicies from a sounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_tucker_dl.html">Example for using the Tucker method to retrieve the planetary boundary layer height from Doppler lidar data.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_cbh_sobel.html">Cloud Base Height Retrievals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_profile_fit_pbl.html">Planetary Boundary Layer Height Gradient Method Retrievals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_wavelet_pbl.html">Planetary Boundary Layer Height Wavelet Method Retrieval</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Planetary Boundary Layer Height Gradient Method Retrievals</a></li>
 </ul>
 </details></li>
@@ -570,18 +573,18 @@ height via a gradient method retrieval</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">act</span>
 
 <span class="c1"># Read Ceilometer data for an example</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename_ceil</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;sgpceilC1.b1.20190101.000000.nc&#39;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename_ceil</span></a> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">'sgpceilC1.b1.20190101.000000.nc'</span><span class="p">)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">arm</span><span class="o">.</span><span class="n">read_arm_netcdf</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename_ceil</span></a><span class="p">)</span>
 
 <span class="c1"># Apply corrections to the dataset</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">corrections</span><span class="o">.</span><span class="n">correct_ceil</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;backscatter&#39;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">corrections</span><span class="o">.</span><span class="n">correct_ceil</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">'backscatter'</span><span class="p">)</span>
 
 <span class="c1"># Estimate PBL Height via a gradient method</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">retrievals</span><span class="o">.</span><span class="n">pbl_lidar</span><span class="o">.</span><span class="n">calculate_gradient_pbl</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">parm</span><span class="o">=</span><span class="s2">&quot;backscatter&quot;</span><span class="p">,</span> <span class="n">smooth_dis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">retrievals</span><span class="o">.</span><span class="n">pbl_lidar</span><span class="o">.</span><span class="n">calculate_gradient_pbl</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">parm</span><span class="o">=</span><span class="s2">"backscatter"</span><span class="p">,</span> <span class="n">smooth_dis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># Estimate PBL Height via a modified gradient method</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="n">retrievals</span><span class="o">.</span><span class="n">pbl_lidar</span><span class="o">.</span><span class="n">calculate_modified_gradient_pbl</span><span class="p">(</span>
-    <span class="n">ds</span><span class="p">,</span> <span class="n">parm</span><span class="o">=</span><span class="s2">&quot;backscatter&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">smooth_dis</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">ds</span><span class="p">,</span> <span class="n">parm</span><span class="o">=</span><span class="s2">"backscatter"</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">smooth_dis</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
 
 <span class="c1"># Plot the pbl height estimates</span>
@@ -589,44 +592,44 @@ height via a gradient method retrieval</p>
 
 <span class="c1"># plot the CL backscatter before overlaying the Gradient Method PBL Height</span>
 <span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="s1">&#39;backscatter&#39;</span><span class="p">,</span>
+    <span class="s1">'backscatter'</span><span class="p">,</span>
     <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,),</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;ChaseSpectral&#39;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">'ChaseSpectral'</span><span class="p">,</span>
     <span class="n">vmin</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span>
     <span class="n">vmax</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
-    <span class="n">set_title</span><span class="o">=</span><span class="s1">&#39;SGP Ceilometer PBL Height Estimate via Gradient Method&#39;</span><span class="p">,</span>
+    <span class="n">set_title</span><span class="o">=</span><span class="s1">'SGP Ceilometer PBL Height Estimate via Gradient Method'</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># overlay the PBL Height estimate, compute ~10min temporal averages</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">display</span><span class="o">.</span><span class="n">axes</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;pbl_gradient&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s1">'pbl_gradient'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="c1"># shorten the range</span>
 <span class="n">display</span><span class="o">.</span><span class="n">set_yrng</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
 
 <span class="c1"># plot the CL backscatter before overlaying the Modified Gradient PBL Height</span>
 <span class="n">display</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="s1">&#39;backscatter&#39;</span><span class="p">,</span>
+    <span class="s1">'backscatter'</span><span class="p">,</span>
     <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;ChaseSpectral&#39;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">'ChaseSpectral'</span><span class="p">,</span>
     <span class="n">vmin</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span>
     <span class="n">vmax</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
-    <span class="n">set_title</span><span class="o">=</span><span class="s1">&#39;SGP Ceilometer PBL Height Estimate via Modified Gradient Method&#39;</span><span class="p">,</span>
+    <span class="n">set_title</span><span class="o">=</span><span class="s1">'SGP Ceilometer PBL Height Estimate via Modified Gradient Method'</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># overlay the PBL Height estimate, compute ~10min temporal averages</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">display</span><span class="o">.</span><span class="n">axes</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;pbl_mod_gradient&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s1">'pbl_mod_gradient'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="c1"># shorten the range</span>
 <span class="n">display</span><span class="o">.</span><span class="n">set_yrng</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="n">subplot_index</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (10 minutes 34.577 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (10 minutes 35.775 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-retrievals-plot-gradient-pbl-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/770c71408d79c40548755d94a28bc9c0/plot_gradient_pbl.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_gradient_pbl.ipynb</span></code></a></p>
@@ -655,12 +658,12 @@ height via a gradient method retrieval</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="plot_cbh_sobel.html"
+       href="plot_wavelet_pbl.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cloud Base Height Retrievals</p>
+        <p class="prev-next-title">Planetary Boundary Layer Height Wavelet Method Retrieval</p>
       </div>
     </a>
     <a class="right-next"
@@ -705,8 +708,8 @@ height via a gradient method retrieval</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -740,7 +743,7 @@ height via a gradient method retrieval</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
 </p></div>
       
     </div>
