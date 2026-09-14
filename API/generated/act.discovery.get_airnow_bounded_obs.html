@@ -803,23 +803,23 @@
 <dt class="sig sig-object py" id="act.discovery.get_airnow_bounded_obs">
 <span class="sig-prename descclassname"><span class="pre">act.discovery.</span></span><span class="sig-name descname"><span class="pre">get_airnow_bounded_obs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latlon_bnds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OZONE,PM25'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'B'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mon_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/act/discovery/airnow.html#get_airnow_bounded_obs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#act.discovery.get_airnow_bounded_obs" title="Link to this definition">#</a></dt>
 <dd><p>Get AQI values or data concentrations for a specific date and time range and set of
-parameters within a geographic area of intrest
+parameters within a geographic area of interest.
 <a class="reference external" href="https://docs.airnowapi.org/">https://docs.airnowapi.org/</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>token</strong> (<em>str</em>) – The access token for accesing the AirNowAPI web server</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – The access token for accessing the AirNowAPI web server</p></li>
 <li><p><strong>start_date</strong> (<em>str</em>) – The start date and hour (in UTC) of the data request.
 Format is YYYY-MM-DDTHH</p></li>
 <li><p><strong>end_date</strong> (<em>str</em>) – The end date and hour (in UTC) of the data request.
 Format is YYYY-MM-DDTHH</p></li>
-<li><p><strong>latlon_bnds</strong> (<em>str</em>) – Lat/Lon bounding box of the area of intrest.
+<li><p><strong>latlon_bnds</strong> (<em>str</em>) – Lat/Lon bounding box of the area of interest.
 Format is ‘minX,minY,maxX,maxY’</p></li>
 <li><p><strong>parameters</strong> (<em>str</em>) – Parameters to return data for. Options are:
 Ozone, PM25, PM10, CO, NO2, SO2
 Format is ‘PM25,PM10’</p></li>
 <li><p><strong>mon_type</strong> (<em>int</em>) – The type of monitor to be returned. Default is 0
-0-Permanent, 1-Mobile onlt, 2-Permanent &amp; Mobile</p></li>
+0-Permanent, 1-Mobile only, 2-Permanent &amp; Mobile</p></li>
 <li><p><strong>data_type</strong> (<em>char</em>) – The type of data to be returned.
 A-AQI, C-Concentrations, B-AQI &amp; Concentrations</p></li>
 </ul>

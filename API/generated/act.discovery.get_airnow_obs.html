@@ -801,23 +801,25 @@
 <h1>act.discovery.get_airnow_obs<a class="headerlink" href="#act-discovery-get-airnow-obs" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="act.discovery.get_airnow_obs">
-<span class="sig-prename descclassname"><span class="pre">act.discovery.</span></span><span class="sig-name descname"><span class="pre">get_airnow_obs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zipcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latlon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/act/discovery/airnow.html#get_airnow_obs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#act.discovery.get_airnow_obs" title="Link to this definition">#</a></dt>
-<dd><p>This tool will get current or historical observed AQI values and categories for a
-reporting area by either Zip code or Lat/Lon coordinate.
+<span class="sig-prename descclassname"><span class="pre">act.discovery.</span></span><span class="sig-name descname"><span class="pre">get_airnow_obs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zipcode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latlon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/act/discovery/airnow.html#get_airnow_obs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#act.discovery.get_airnow_obs" title="Link to this definition">#</a></dt>
+<dd><p>This tool will get current or historical observed AQI values and categories.
+Current observations can be requested by Zip code or Lat/Lon coordinate.
+Historical daily observations are requested by state.
 <a class="reference external" href="https://docs.airnowapi.org/">https://docs.airnowapi.org/</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>token</strong> (<em>str</em>) – The access token for accesing the AirNowAPI web server</p></li>
-<li><p><strong>date</strong> (<em>str</em>) – The date of the data to be acquired. Format is YYYY-MM-DD
-Default is None which will pull most recent observations</p></li>
-<li><p><strong>zipcode</strong> (<em>str</em>) – The zipcode of the location for the data request.
+<li><p><strong>token</strong> (<em>str</em>) – The access token for accessing the AirNowAPI web server</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – The date of the data to be acquired. Format is YYYY-MM-DD.
+Default is None, which will pull the most recent observations.</p></li>
+<li><p><strong>zipcode</strong> (<em>str</em>) – The zipcode of the location for a current data request.
 If zipcode is not defined then a latlon coordinate must be defined.</p></li>
-<li><p><strong>latlon</strong> (<em>array</em>) – The latlon coordinate of the loaction for the data request.
+<li><p><strong>latlon</strong> (<em>array</em>) – The latlon coordinate of the location for a current data request.
 If latlon is not defined then a zipcode must be defined.</p></li>
-<li><p><strong>distance</strong> (<em>int</em>) – If no reporting are is associated with the specified zipcode or latlon,
-return a forcast from a nearby reporting area with this distance (in miles).
-Default is 25 miles</p></li>
+<li><p><strong>state</strong> (<em>str</em>) – Two-letter state code used for historical daily observations.
+Required when date is provided.</p></li>
+<li><p><strong>distance</strong> (<em>int</em>) – For current observations, search for data within this distance
+(in miles). Default is 25 miles.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -825,8 +827,9 @@ Default is 25 miles</p></li>
 </dd>
 </dl>
 <p class="rubric">Example</p>
-<p>act.discovery.get_AirNow_obs(token=’XXXXXX’, date=’2021-12-01’, zipcode=’60440’)
-act.discovery.get_AirNow_obs(token=’XXXXXX’, latlon=[45,-87])</p>
+<p>act.discovery.get_airnow_obs(token=’XXXXXX’, zipcode=’60440’)
+act.discovery.get_airnow_obs(token=’XXXXXX’, latlon=[45, -87])
+act.discovery.get_airnow_obs(token=’XXXXXX’, date=’2025-05-01’, state=’IL’)</p>
 </dd></dl>
 
 </section>
