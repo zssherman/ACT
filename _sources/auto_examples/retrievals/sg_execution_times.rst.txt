@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**11:52.684** total execution time for 6 files **from auto_examples/retrievals**:
+**06:33.329** total execution time for 7 files **from auto_examples/retrievals**:
 
 .. container::
 
@@ -33,20 +33,23 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_retrievals_plot_gradient_pbl.py` (``plot_gradient_pbl.py``)
-     - 10:41.381
+     - 05:50.424
      - 0.0
    * - :ref:`sphx_glr_auto_examples_retrievals_plot_tucker_dl.py` (``plot_tucker_dl.py``)
-     - 00:47.289
+     - 00:28.941
      - 0.0
    * - :ref:`sphx_glr_auto_examples_retrievals_plot_wavelet_pbl.py` (``plot_wavelet_pbl.py``)
-     - 00:15.676
+     - 00:08.809
      - 0.0
    * - :ref:`sphx_glr_auto_examples_retrievals_plot_cbh_sobel.py` (``plot_cbh_sobel.py``)
-     - 00:04.696
+     - 00:02.799
      - 0.0
    * - :ref:`sphx_glr_auto_examples_retrievals_plot_profile_fit_pbl.py` (``plot_profile_fit_pbl.py``)
-     - 00:03.504
+     - 00:01.987
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_retrievals_plot_sonde_pbl.py` (``plot_sonde_pbl.py``)
+     - 00:00.282
      - 0.0
    * - :ref:`sphx_glr_auto_examples_retrievals_plot_get_stability_indices_example.py` (``plot_get_stability_indices_example.py``)
-     - 00:00.137
+     - 00:00.086
      - 0.0
