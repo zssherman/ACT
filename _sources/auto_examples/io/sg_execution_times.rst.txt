@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:25.535** total execution time for 7 files **from auto_examples/io**:
+**01:04.877** total execution time for 7 files **from auto_examples/io**:
 
 .. container::
 
@@ -33,23 +33,23 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_io_plot_convert_ameriflux.py` (``plot_convert_ameriflux.py``)
-     - 01:15.196
+     - 00:53.103
      - 0.0
    * - :ref:`sphx_glr_auto_examples_io_plot_hysplit.py` (``plot_hysplit.py``)
-     - 00:03.906
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_io_plot_icartt.py` (``plot_icartt.py``)
-     - 00:01.811
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_io_plot_create_arm_ds.py` (``plot_create_arm_ds.py``)
-     - 00:01.797
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_io_plot_raw_minimpl.py` (``plot_raw_minimpl.py``)
-     - 00:00.980
+     - 00:05.147
      - 0.0
    * - :ref:`sphx_glr_auto_examples_io_plot_surfrad.py` (``plot_surfrad.py``)
-     - 00:00.939
+     - 00:02.045
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_io_plot_icartt.py` (``plot_icartt.py``)
+     - 00:01.637
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_io_plot_create_arm_ds.py` (``plot_create_arm_ds.py``)
+     - 00:01.533
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_io_plot_raw_minimpl.py` (``plot_raw_minimpl.py``)
+     - 00:00.734
      - 0.0
    * - :ref:`sphx_glr_auto_examples_io_plot_sodar.py` (``plot_sodar.py``)
-     - 00:00.906
+     - 00:00.678
      - 0.0
